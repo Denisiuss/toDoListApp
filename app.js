@@ -29,7 +29,7 @@ let day = today.toLocaleDateString("en-US", options)
 main().catch(err => console.log(err));
 
 async function main() {
-    await mongoose.connect(process.env.MONGOOSE_CONNECT);
+    await mongoose.connect('mongodb+srv://Admin_Denis:le0xHYijK4HC30vp@denissius.qtylkuh.mongodb.net/todoListDB');
 
     const todayTodoList = new mongoose.Schema({
         taskName: String
