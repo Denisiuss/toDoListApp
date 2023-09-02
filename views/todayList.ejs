@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+<main>
+<div class="box" id="heading">
+    <h1><%= kindOfDay %></h1>
+</div>
+
+<div class="box">
+
+    <% for (var i = 0; i<actsToAddToday.length; i++){ %>
+        <form action="/delete" method="post">
+        <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=actsToAddToday[i]._id%>" onChange="this.form.submit()">
+            <p><%= actsToAddToday[i].taskName %></p>
+        </div>
+        <input type="hidden" name="listName" value="<%= kindOfDay%>"> 
+        </form>
+    <% } %>
+    <form class="item" action="/" method="post">
+        <input name="addToList" type="text" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value="<%= kindOfDay%>">+</button>
+    </form>
+    
+    </div>
+</main>
+
+<%- include('partials/footer') %>
